@@ -14,6 +14,10 @@ app.get('/home', (req, res) => {
     res.status(200).json({msg: "HOME"})
 })
 
+app.get('/app', (req, res) => {
+    res.status(200).json({msg: "app"})
+})
+
 
 app.listen(process.env.PORT, ()=>{
     console.log("STARTED");
