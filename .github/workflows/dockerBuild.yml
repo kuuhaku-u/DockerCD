@@ -1,0 +1,18 @@
+name: Node Deply application
+
+on:
+  push:
+   branches: [ main ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login docker.io -u "kuuhakuu" --password-stdin
+        docker image build -t kuuhakuu/abc:latest .
+        docker push kuuhakuu/abc:latest
